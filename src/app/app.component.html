@@ -1,0 +1,5 @@
+<main>
+  <app-header [totalItems] = "totalItems"></app-header>
+  <app-than [products] = "products" (prodPrice)="totalPrice($event)" (prodtotal)="totalItem($event)"></app-than>
+  <app-footer [subTotal] = "subTotal"></app-footer>
+</main>
