@@ -9,7 +9,7 @@ import { Product } from '../product.model';
   styleUrls: ['./than.component.css'],
 })
 export class ThanComponent {
-  @Input() products:Product[];
+  @Input() products: Product[];
   @Output() prodPrice = new EventEmitter<Number>();
   @Output() prodtotal = new EventEmitter<Number>();
   // removeProduct(productId: String) {
@@ -18,21 +18,24 @@ export class ThanComponent {
   //   this.products.splice(i, 1);
   // }
 
-  xacnhan(productId: String){
-    if(confirm("Xác nhận xóa")){
+  xacnhan(productId: String) {
+    if (confirm('Xác nhận xóa')) {
       this.remove2(productId);
     }
   }
 
-  remove2(productId: String){
-    this.products = this.products.filter(p => p.id !== productId);
+  remove2(productId: String) {
+    this.products = this.products.filter((p) => p.id !== productId);
+    let sum = 0;
+    let totalPrice = 0;
+
     this.calculatorAndEmiter();
   }
 
-  change(){
+  change() {
     this.calculatorAndEmiter();
   }
-  calculatorAndEmiter(){
+  calculatorAndEmiter() {
     let sum = 0;
     let totalPrice = 0;
 
@@ -40,8 +43,7 @@ export class ThanComponent {
       sum += item.quantity;
       totalPrice += item.quantity * item.price;
     }
-    this.prodPrice.emit (totalPrice);
+    this.prodPrice.emit(totalPrice);
     this.prodtotal.emit(sum);
-
   }
 }

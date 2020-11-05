@@ -1,6 +1,6 @@
 <section class="container">
-  <ul class="products"*ngFor="let item of products">
-    <li class="row" >
+  <ul class="products" *ngFor="let item of products">
+    <li class="row">
       <div class="col left">
         <div class="thumbnail">
           <a href="#">
@@ -14,7 +14,7 @@
           <div class="description">
             {{ item.description }}
           </div>
-          <div class="price">{{ item.price | currency: 'VND' }}</div>
+          <div class="price">{{ item.price | currency: "VND" }}</div>
         </div>
       </div>
 
@@ -25,7 +25,7 @@
             class="quantity"
             step="1"
             [(ngModel)]="item.quantity"
-            (change) = "change()"
+            (input)="change()"
           />
         </div>
 
@@ -40,7 +40,6 @@
             viewBox="0 0 60 60"
             enable-background="new 0 0 60 60"
             xml:space="preserve"
-
             (click)="xacnhan(item.id)"
           >
             <polygon
@@ -93,7 +92,5 @@
     </li> -->
   </ul>
 </section>
-
-
 
 <!-- (click)="confirm(item.id)" -->

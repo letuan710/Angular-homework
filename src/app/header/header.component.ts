@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-header',
@@ -6,7 +7,13 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent  {
-
   @Input() totalItems: number;
+
+  // constructor(private productService: ProductService){
+  //   this.productService.calculatorAndEmiter()
+  //   this.totalItems= this.productService.totalItems;
+  // }
+
+
 
 }
