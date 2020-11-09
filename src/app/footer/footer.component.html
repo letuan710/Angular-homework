@@ -8,6 +8,7 @@
     <ul>
       <li>Subtotal <span>${{getSubtotal()}}</span></li>
       <li>Tax <span>${{(getSubtotal() * 0.1).toFixed(2)}}</span></li>
+      <li>Discount<span>{{getDiscount().toFixed(2)}}</span></li>
       <li class="total">Total <span>${{(getSubtotal() + getSubtotal() * 0.1-getDiscount()).toFixed(2)}}</span></li>
     </ul>
   </div>
