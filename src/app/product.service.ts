@@ -10,6 +10,18 @@ export class ProductService {
   subTotal: number = 0;
   totalItems: number = 0;
 
+  discount: number = 0;
+  coupon = [
+    {
+      code: '1200',
+      value: 10,
+    },
+    {
+      code: '1201',
+      value : 11,
+    }
+  ]
+
   products: Product[] = [
     {
       id: '1',
@@ -31,13 +43,17 @@ export class ProductService {
     },
   ];
 
-  calculator() {
-    for (const item of this.products) {
-      this.totalItems += item.quantity;
-      this.subTotal += item.quantity * item.price;
-    }
-  }
+
+  // calculator() {
+  //   console.log('2')
+  //   for (const item of this.products) {
+  //     this.totalItems += item.quantity;
+  //     this.subTotal += item.quantity * item.price;
+  //   }
+  // }
   calculatorAndEmiter() {
+    this.totalItems = 0;
+    this.subTotal = 0;
     console.log('asd')
     for (const item of this.products) {
       this.totalItems += item.quantity;
@@ -58,5 +74,20 @@ export class ProductService {
     this.calculatorAndEmiter();
   }
 
+  promotion(code: String){
+    const i: number = this.coupon.findIndex(coupon => coupon.code === code);
+    if(i != -1  ){
+      this.discount = this.coupon[i].value
+    }
+  }
 
+  getSubtotal(): number {
+    return this.subTotal;
+  }
+  getDiscount(): number {
+    return this.discount;
+  }
+  getTotalItems(): number {
+    return this.totalItems;
+  }
 }

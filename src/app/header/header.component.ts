@@ -1,3 +1,5 @@
+import { getAllLifecycleHooks } from '@angular/compiler/src/lifecycle_reflector';
+import { getInterpolationArgsLength } from '@angular/compiler/src/render3/view/util';
 import { Component, Input, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 
@@ -7,7 +9,12 @@ import { ProductService } from '../product.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent  {
-  @Input() totalItems: number;
+   constructor(private productService:ProductService){
+
+   }
+   getTotalItem(): number {
+    return this.productService.getTotalItems();
+  }
 
   // constructor(private productService: ProductService){
   //   this.productService.calculatorAndEmiter()

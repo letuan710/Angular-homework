@@ -1,14 +1,14 @@
 <section class="container">
   <div class="promotion">
     <label for="promo-code">Have A Promo Code?</label>
-    <input type="text" id="promo-code" /> <button type="button"></button>
+    <input type="text" id="promo-code" [(ngModel)] = " coupon" (input)="useCoupon()"/> <button type="button"></button>
   </div>
 
   <div class="summary">
     <ul>
-      <li>Subtotal <span>${{subTotal}}</span></li>
-      <li>Tax <span>${{(subTotal * 0.1).toFixed(2)}}</span></li>
-      <li class="total">Total <span>${{(subTotal + subTotal * 0.1).toFixed(2)}}</span></li>
+      <li>Subtotal <span>${{getSubtotal()}}</span></li>
+      <li>Tax <span>${{(getSubtotal() * 0.1).toFixed(2)}}</span></li>
+      <li class="total">Total <span>${{(getSubtotal() + getSubtotal() * 0.1-getDiscount()).toFixed(2)}}</span></li>
     </ul>
   </div>
 

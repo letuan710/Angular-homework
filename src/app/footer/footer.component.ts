@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-footer',
@@ -6,6 +7,26 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css'],
 })
 export class FooterComponent {
-  @Input() subTotal: number;
 
+  constructor(private productService: ProductService){}
+
+  // @Input() subTotal: number;
+  // // subtotal: number;
+  // @Input() discount: number;
+
+
+  coupon: string = '';
+
+  useCoupon() : void {
+    this.productService.promotion(this.coupon);
+  }
+
+  getSubtotal(): number {
+    console.log(this.productService.products);
+    return this.productService.getSubtotal();
+  }
+
+  getDiscount():number{
+    return this.productService.getDiscount();
+  }
 }

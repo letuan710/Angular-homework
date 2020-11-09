@@ -11,6 +11,7 @@ export class AppComponent  {
   products: Product[]=[];
   subTotal: number = 0;
   totalItems: number = 0;
+  discount: number = 0;
 
   constructor(private productService: ProductService){
     this.products = this.productService.products;
@@ -21,7 +22,7 @@ export class AppComponent  {
   }
 
   calculator(){
-    this.productService.calculator();
+    this.productService.calculatorAndEmiter();
   }
 
   remove(productId){
@@ -33,6 +34,4 @@ export class AppComponent  {
   // totalItem(e){
   //   this.totalItems = e;
   // }
-
-
 }
